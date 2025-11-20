@@ -8,6 +8,10 @@ int main(int argc, char *argv[])
         return 1;
     }
     struct stat s;
+     if (stat(argv[1], &s) != 0) {
+        perror("stat");
+        return 1;
+    }
     printf("Inode: %ld\n", (long)s.st_ino);
     printf("Hard links: %ld\n", (long)s.st_nlink);
     printf("Size: %ld bytes\n", (long)s.st_size);
@@ -15,4 +19,5 @@ int main(int argc, char *argv[])
     printf("Last Access: %s", ctime(&s.st_atime));
     printf("Last Modify: %s", ctime(&s.st_mtime));
     return 0;
+
 }
