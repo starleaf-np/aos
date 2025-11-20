@@ -15,6 +15,8 @@ int main() {
     signal(SIGINT, handler);
     while (1) { 
         printf("I am in while loop waiting for Ctrl-C...\n");
+        sleep(3);
     }
     return 0;
+
 }
